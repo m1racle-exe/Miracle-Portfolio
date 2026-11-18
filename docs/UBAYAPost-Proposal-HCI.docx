@@ -1,0 +1,396 @@
+**UBAYAPost**** : Platform Terintegrasi untuk Event, Kepanitiaan, dan Relasi Mahasiswa**
+
+Anggota Kelompok : 
+
+Cecilia Quincy Tanaya_160425004
+
+Valencia Theodora_160425006
+
+Sabrina Hans_160425020
+
+Margaret Christabel Robert_160425067
+
+Miracle Lee Gavrila Tangkulung_160425069
+
+UNIVERSITAS SURABAYA
+
+FAKULTAS TEKNIK
+2026
+
+# **DAFTAR ISI**
+
+	**DAFTAR ISI**	**1**
+
+	**BAB I: PENDAHULUAN**	**2**
+
+	1.1 Latar Belakang Masalah	2
+
+	1.2 Tujuan Proyek	3
+
+	**BAB II: EMPATHIZE**	**5**
+
+	2.1 Metodologi Riset	5
+
+	2.1.1 Struktur Pertanyaan Profil Responden	5
+
+	2.1.2 Struktur Pertanyaan Validasi Permasalahan	5
+
+	2.1.3 Struktur Pertanyaan Identifikasi Penyebab Masalah	6
+
+	2.1.4 Struktur Pertanyaan Kebutuhan Solusi	6
+
+	2.2 Hasil Riset	6
+
+	2.2.1 Hasil Validasi Permasalahan	6
+
+	2.2.2 Hasil Identifikasi Penyebab Masalah	7
+
+	2.2.3 Hasil Analisis Kebutuhan Solusi	7
+
+	**BAB III: DEFINE**	**9**
+
+	3.1 Target Pengguna & Persona	9
+
+	3.2 Problem Statement / Point of View (POV)	11
+
+	**BAB IV: IDEATE**	**12**
+
+	4.1 Proses Brainstorming	12
+
+	4.2 Tabel How Might We (HMW) & Solusi	14
+
+	**BAB V: DESAIN PRODUK**	**16**
+
+	5.1 High Fidelity Prototype	16
+
+	5.2 Skenario Penggunaan & Estetika	21
+
+	5.2.1 User Flow	21
+
+	5.2.2 Konsep Visual	23
+
+	5.2.3 Elemen Estetika	24
+
+	**BAB VI: TEST**	**25**
+
+	6.1 Heuristic Evaluation	25
+
+	6.1.1 Mencari Kegiatan	25
+
+	6.1.2 Mendaftar Workshop	25
+
+	6.1.3 Membuat Postingan	26
+
+	**BAB VII: PENUTUP**	**27**
+
+	7.1 Kesimpulan	27
+
+	7.2 Saran Pengembangan	27
+
+	**DAFTAR PUSTAKA**	**28**
+
+	**LAMPIRAN**	**29**
+
+# **BAB I: PENDAHULUAN**
+
+## **1.1 Latar Belakang Masalah**
+
+Kegiatan kemahasiswaan merupakan kegiatan ekstrakurikuler yang bertujuan untuk memperkaya wawasan mahasiswa yang kegiatannya dilakukan diluar kurikulum perkuliahan. Kegiatan kemahasiswaan merupakan suatu sarana bagi mahasiswa untuk membekali diri melalui berbagai keahlian dan keterampilan tambahan yang didapatkan selain dari pengetahuan akademik yang diberikan melalui kurikulum perkuliahan. Sehingga diharapkan mahasiswa tidak saja menguasai pengetahuan akademik, tetapi juga memiliki *soft skill *yang baik. Kegiatan kemahasiswaan secara mendasar mencakup penalaran dan keilmuan, minat dan bakat, dan kesejahteraan jasmani maupun rohani. (Ginantara & Atmaja, 2018).
+
+Jenis kegiatan kemahasiswaan yang ada di Universitas Surabaya diantaranya meliputi organisasi, kepanitiaan, dan seminar. Selain untuk meningkatkan* soft skill*, kegiatan kemahasiswaan juga bermanfaat untuk mendapatkan poin kemahasiswaan. Dikutip dari laman resmi [dpk.ubaya.ac.id](http://dpk.ubaya.ac.id), poin kemahasiswaan adalah penghargaan kepada mahasiswa yang aktif dalam kegiatan kurikuler, ko-kurikuler, dan ekstrakurikuler. Di mana salah satu syarat kelulusan di Universitas Surabaya (UBAYA) adalah memiliki poin kemahasiswaan minimal 100 poin. Oleh karena itu mahasiswa perlu aktif berpartisipasi dalam kegiatan kemahasiswaan. Namun pencarian kegiatan kemahasiswaan bukanlah hal yang mudah. 
+
+Penelitian yang dilakukan di Universitas Airlangga pada tahun 2017 menunjukkan bahwa 91% mahasiswa menggunakan *handphone* untuk mengakses informasi seputar kegiatan kemahasiswaan. Di mana LINE menjadi salah satu media penyebaran informasi kegiatan kemahasiswaan dengan persentase 94,9%. Namun, karena pada esensinya LINE adalah media komunikasi personal dan grup maka tak jarang informasi kegiatan kemahasiswaan ini tertimbun. Di sisi lain, hasil penelitian juga menunjukkan bahwa 70% mahasiswa memperoleh informasi seputar kegiatan kemahasiswaan dengan bertanya kepada temannya. Hal ini menimbulkan eksklusivitas dalam mendapatkan informasi kegiatan kemahasiswaan karena tidak sembarang orang dapat mengetahui informasi mengenai kegiatan kemahasiswaan.
+
+Permasalahan serupa juga ditemukan di lingkungan Universitas Surabaya. Berdasarkan hasil survei yang dilakukan terhadap 16 mahasiswa UBAYA, seluruh responden menyatakan bahwa mereka memperoleh informasi kegiatan kemahasiswaan melalui setidaknya salah satu dari grup WhatsApp /LINE, Instagram, dan teman. Selain itu, 37,5% responden mengaku pernah terlambat mengetahui informasi kegiatan yang sebenarnya ingin mereka ikuti. Hasil survei juga menunjukkan bahwa salah satu hambatan utama dalam memperoleh informasi kegiatan kemahasiswaan adalah informasi yang tersebar di berbagai platform media sosial, tertimbun dalam grup percakapan, serta tidak adanya media yang mampu mengintegrasikan seluruh informasi kegiatan kampus dalam satu tempat.
+
+Lebih lanjut, sebanyak 37,5% responden menyatakan bahwa mahasiswa yang tidak aktif berorganisasi tidak memiliki kemudahan akses informasi yang sama dengan mahasiswa yang aktif berorganisasi, sementara 50% responden menyatakan ragu-ragu terhadap kesetaraan akses informasi tersebut. Temuan ini menunjukkan bahwa distribusi informasi kegiatan kemahasiswaan masih belum sepenuhnya merata sehingga berpotensi mengurangi kesempatan sebagian mahasiswa untuk berpartisipasi dalam kegiatan pengembangan diri.
+
+Akses informasi yang terbatas terhadap kegiatan kemahasiswaan ini menjadi salah satu hambatan dalam mewujudkan *Sustainable Development Goals *(SDGs) Poin 4, yaitu “Pendidikan Berkualitas”. Secara spesifik, kondisi ini menghambat pencapaian Target 4.4 yang berfokus pada peningkatan jumlah pemuda dengan keterampilan relevan, termasuk keterampilan teknis dan *soft skills *untuk mendukung kesiapan kerja serta wirausaha. Mengingat kegiatan kemahasiswaan merupakan sarana utama mahasiswa dalam mengasah *soft skills *yang sesuai dengan tuntutan pekerjaan di zaman sekarang, sulitnya mengakses informasi ini akan merenggut kesempatan mahasiswa untuk mengembangkan potensi diri secara optimal. 
+
+Oleh karena itu, demi mewujudkan SDG 4 di lingkungan kampus dan untuk menciptakan suasana kampus yang lebih inklusif, maka munculah sebuah ide aplikasi yang menyatukan semua informasi kegiatan yang ada dalam kampus. Selain membantu informasi tersebar merata ke seluruh mahasiswa, aplikasi ini juga dapat memberikan wadah bagi organisasi untuk mempublikasikan kegiatannya.
+
+## **1.2 Tujuan Proyek**
+
+Berdasarkan latar belakang permasalahan yang telah diuraikan, tujuan dari proyek ini adalah sebagai berikut: 
+
+- Merancang dan membangun aplikasi UBAYAPost sebagai media informasi kegiatan kemahasiswaan yang terpusat di lingkungan Universitas Surabaya.
+
+- Memudahkan mahasiswa dalam memperoleh informasi mengenai kegiatan kemahasiswaan seperti organisasi, kepanitiaan, seminar, dan kegiatan lainnya secara cepat dan mudah diakses.
+
+- Membantu pemerataan penyebaran informasi kegiatan kemahasiswaan sehingga seluruh mahasiswa memiliki kesempatan yang sama untuk memperoleh informasi kegiatan kampus.
+
+- Mengurangi risiko keterlambatan mahasiswa dalam memperoleh informasi kegiatan akibat penyebaran informasi yang tersebar di berbagai media komunikasi dan media sosial.
+
+- Menyediakan sarana bagi organisasi dan penyelenggara kegiatan untuk mempublikasikan informasi kegiatan kepada mahasiswa secara lebih efektif.
+
+- Mendukung pengembangan *soft skill* mahasiswa melalui peningkatan akses terhadap berbagai kegiatan kemahasiswaan yang tersedia di Universitas Surabaya.
+
+# **BAB II: *****EMPATHIZE***
+
+## **2.1 Metodologi Riset**
+
+	Pengumpulan data primer akan dilakukan dengan kuesioner dengan *Google Form *untuk mengetahui dan memvalidasi permasalahan yang kami angkat yaitu adanya kesulitan dalam mencari kegiatan kemahasiswaan dalam kampus. Data dikumpulkan melalui *Google Form* dengan struktur sebagai berikut : 
+
+### **2.1.1 Struktur Pertanyaan Profil Responden**
+
+| No | Komponen | Jenis *Input* | Tujuan |
+| --- | --- | --- | --- |
+| 1 | Angkatan | *Multiple Choice* | Mengidentifikasi tingkat senioritas pengguna |
+| 2 | Fakultas | *Dropdown* | Mengelompokkan data berdasarkan latar belakang akademik |
+| 3 | Organisasi/ UKM | *Short Answer* | Mengetahui keterlibatan aktif dengan kegiatan kampus |
+| 4 | Panitia Lepas | *Short Answer* | Mengetahui keterlibatan aktif dengan kegiatan kampus |
+
+### **2.1.2 Struktur Pertanyaan Validasi Permasalahan**
+
+| No | Komponen | Jenis *Input* | Tujuan |
+| --- | --- | --- | --- |
+| 1 | Sumber informasi kegiatan kampus | *Checkboxes* | Memvalidasi sumber informasi tempat mengumpulkan informasi mengenai kegiatan kampus |
+| 2 | Terlambat mengetahui informasi kegiatan kampus | *Multiple Choice* | Mengkonfirmasi apakah masalah benar-benar terjadi dan dirasakan oleh target pengguna |
+| 3 | Seberapa sering tertinggal informasi | *Linear Scale *(1-5 *Scale*) | Mengetahui seberapa parah masalah ini |
+| 4 | Kesetaraan akses informasi pada mahasiswa | *Multiple Choice* | Mengetahui pandangan target pengguna mengenai kesetaraan akses informasi di kampus |
+
+### **2.1.3 Struktur Pertanyaan Identifikasi Penyebab Masalah**
+
+| No | Komponen | Jenis *Input* | Tujuan |
+| --- | --- | --- | --- |
+| 1 | Hambatan mencari informasi kegiatan kampus | *Checkboxes* | Mengetahui hambatan saja yang dialami oleh target pengguna dalam mendapatkan informasi kegiatan kampus |
+| 2 | Waktu yang dibutuhkan untuk menemukan informasi kegiatan kampus | *Linear Scale *(1-5 *Scale*) | Mengukur tingkat kesulitan pengguna saat mencari informasi secara mandiri dengan sistem yang ada saat ini |
+
+### **2.1.4 Struktur Pertanyaan Kebutuhan Solusi**
+
+| No | Komponen | Jenis *Input* | Tujuan |
+| --- | --- | --- | --- |
+| 1 | Kebutuhan akan solusi | *Linear Scale *(1-4 *Scale*) | Mengetahui kebutuhan akan solusi yang ditawarkan |
+| 2 | Fitur dalam solusi yang ditawarkan | *Checkboxes* | Mengetahui fitur apa saja yang diminati dalam solusi yang ditawarkan |
+
+## **2.2 Hasil Riset**
+
+Kuesioner disebarkan kepada 16 mahasiswa Universitas Surabaya. Responden terdiri dari mahasiswa angkatan 2023, 2024, dan 2025, dengan mayoritas berasal dari Fakultas Teknik sebanyak 75% (12 responden). Sebanyak 50% responden aktif mengikuti organisasi, 56,25% aktif mengikuti kepanitiaan kampus, dan sebanyak  37,5% aktif mengikuti organisasi dan kepanitiaan sekaligus.
+
+### **2.2.1 Hasil Validasi Permasalahan**
+
+Berdasarkan hasil survei, sumber informasi kegiatan kampus yang paling umum digunakan oleh mahasiswa adalah kombinasi grup WhatsApp/LINE (81,3%), Instagram (87,5%), dan teman (81,3%). Sebanyak 62,5% responden menyatakan memperoleh informasi kegiatan kampus melalui ketiga sumber tersebut secara bersamaan. Hal ini menunjukkan bahwa informasi kegiatan kampus masih tersebar pada berbagai media dan belum terpusat dalam satu platform.
+
+Selain itu, sebanyak 37,5% responden mengaku pernah terlambat mengetahui informasi kegiatan kampus yang sebenarnya ingin mereka ikuti, sedangkan 62,5% responden menyatakan tidak pernah mengalami hal tersebut. Meskipun mayoritas responden tidak pernah terlambat memperoleh informasi, persentase mahasiswa yang pernah mengalami keterlambatan masih cukup signifikan.
+
+Pada pertanyaan mengenai frekuensi tertinggal informasi kegiatan kampus dibandingkan mahasiswa lain, 25% responden memberikan nilai 4 dan 5, sementara sebagian besar responden (43,8%) memberikan nilai 3 dari skala 1 (tidak pernah) – 5 (selalu). Hasil ini menunjukkan bahwa mahasiswa masih cukup sering merasa tertinggal informasi mengenai kegiatan kampus.
+
+Terkait kesetaraan akses informasi, hanya 12,5% responden yang merasa mahasiswa yang tidak aktif berorganisasi memiliki akses informasi yang sama mudahnya dengan mahasiswa yang aktif berorganisasi. Sebaliknya, 37,5% responden menjawab tidak, dan 50% responden menjawab ragu-ragu. Hasil ini mengindikasikan bahwa akses informasi kegiatan kampus belum sepenuhnya dirasakan secara merata oleh seluruh mahasiswa.
+
+### **2.2.2 Hasil Identifikasi Penyebab Masalah**
+
+Berdasarkan jawaban responden, hambatan terbesar dalam memperoleh informasi kegiatan kampus adalah informasi yang tersebar di banyak akun media sosial (50%), informasi yang tertimbun dalam grup percakapan (62,5%), tidak adanya wadah terpusat untuk mengumpulkan informasi kegiatan kampus (62,5%), serta kombinasi ketiganya (25%).
+
+Seluruh responden memilih setidaknya salah satu dari tiga hambatan tersebut. Temuan ini menunjukkan bahwa sistem penyebaran informasi yang digunakan saat ini masih kurang efektif dalam menjangkau seluruh mahasiswa.
+
+Pada pertanyaan mengenai waktu atau usaha yang diperlukan untuk mencari informasi kegiatan kampus secara mandiri, mayoritas responden memberikan nilai 3 (43,8%) dan 4 (25%) pada skala 1 (sangat sulit/lama) – 5 (sangat mudah/cepat). Hal ini menunjukkan bahwa mahasiswa masih perlu mengeluarkan usaha yang cukup besar untuk menemukan informasi kegiatan yang relevan.
+
+### **2.2.3 Hasil Analisis Kebutuhan Solusi**
+
+Hasil survei menunjukkan bahwa mayoritas responden mendukung adanya platform khusus yang mengumpulkan seluruh informasi kegiatan kampus secara terpusat. Sebanyak 56,3% responden memberikan nilai 4, sementara 37,5% responden memberikan nilai 3 pada skala 1 (tidak butuh) – 4 (sangat butuh). Hasil ini menunjukkan bahwa kebutuhan terhadap solusi yang ditawarkan cukup tinggi.
+
+Selain itu, fitur yang paling banyak diharapkan dalam aplikasi adalah:
+
+- Filter kegiatan berdasarkan kategori (lomba, webinar, organisasi, dan sebagainya). (87,5%)
+
+- Kalender kegiatan kampus. (62,5%)
+
+- Fitur pendaftaran langsung melalui aplikasi.  (62,5%)
+
+- Notifikasi pengingat sebelum batas waktu pendaftaran berakhir. (56,3%)
+
+Berdasarkan hasil riset tersebut dapat disimpulkan bahwa mahasiswa masih mengalami kesulitan dalam memperoleh informasi kegiatan kampus karena informasi tersebar di berbagai media dan belum tersedia wadah informasi yang terpusat. Oleh karena itu, diperlukan sebuah aplikasi yang mampu mengintegrasikan informasi kegiatan kampus sehingga informasi dapat diakses dengan lebih mudah, cepat, dan merata oleh seluruh mahasiswa Universitas Surabaya.
+
+# **BAB III: *****DEFINE***
+
+## **3.1 Target Pengguna ****&**** Persona**
+
+	Target utama dari pengembangan proyek ini adalah seluruh Mahasiswa UBAYA, dengan fokus spesifik pada mahasiswa aktif dari berbagai program studi. Target pengguna terkhusus adalah mahasiswa aktif yang kesulitan mencari informasi mengenai kegiatan kampus yang sedang dalam masa pendaftaran, mulai dari kepanitian, organisasi, seminar akademik, *workshop *pengembangan diri*,* dan berbagai informasi kegiatan kampus lainnya. 
+
+Berdasarkan tujuan dari pembuatan proyek ini, dibuatlah *User Persona *yang sesuai dengan masalah utama yang kami bahas. Berikut adalah *User Persona* dari target pengguna aplikasi ini : 
+
+## **3.2 *****Problem Statement***** / *****Point of View***** (POV)**
+
+| ***User*** | ***Need*** | ***Insight*** |
+| --- | --- | --- |
+| Mahasiswa UBAYA | Mencari kegiatan sesuai yang diminati | *User *ingin mengikuti kegiatan sesuai minatnya, namun seringkali informasi kegiatan tersebut tertumpuk sehingga ia sering ketinggalan informasi |
+|  | Membutuhkan aplikasi untuk mencari kegiatan yang ada di kampus | *User *tidak aktif *social media* sehingga tidak mengetahui informasi yang ada |
+|  | Membutuhkan tempat untuk mencari informasi kegiatan tanpa memerlukan relasi | *User *kebingungan mencari kegiatan kampus yang ada karena masih mahasiswa baru |
+
+# **BAB IV: *****IDEATE***
+
+## **4.1 ****Proses**** *****Brainstorming***
+
+**HMW *****Question*****: **Bagaimana kita bisa merancang sistem pencarian kegiatan kampus yang praktis dan bebas ribet untuk mahasiswa UBAYA sehingga mereka bisa menemukan kegiatan kampus dengan cepat dan efisien?
+
+|  | **Idea 1** | **Idea 2** | **Idea 3** | **Idea 4** | **Idea 5** |
+| --- | --- | --- | --- | --- | --- |
+| **Round 1** | (Margaret) Menyortir tiap kegiatan yang ada agar tidak upload berulang kali. | (Valen) Membuat filter jenis kegiatan kampus. | (Miracle) Membuat satu wadah untuk semua kegiatan kampus agar informasi tidak tersebar beberapa platform. | (Sabrina) Dengan cara memberikan akses tidak terbatas kepada seluruh mahasiswa untuk menyebarkan kegiatan kampus. | (Cecil) Semua alur pendaftaran ada di satu aplikasi. |
+| **Round 2** | (Valen)  Memberikan notifikasi kepada pengguna apabila ada kegiatan baru yang diupload oleh penyelenggara kegiatan. | (Miracle) Membuat filter menurut dari pihak apa, urutan menurut apa, divisi apa yang ada. | (Sabrina) Membuat wadah yang bagaimana maksudnya? | (Cecil) Kalau diberi akses tidak terbatas untuk semua mahasiswa bukannya bisa muncul penipuan? Seharusnya untuk akun tertentu saja. | (Margaret) Berikan fitur agar aplikasi bisa dibuat sebagai tempat promosi dan pendaftaran. |
+| **Round 3** | (Miracle) Memberi notifikasi dan warning jika batas pendaftaran suatu kegiatan yang disimpan sudah mendekati. | (Sabrina) Filter yang diberikan berdasarkan tujuan kegiatan seperti seminar, kepanitiaan lepas dan lain-lainnya agar mempermudah pencarian. | (Cecil) Membuat wadah seperti forum? Supaya semua mahasiswa bisa masuk dan tidak perlu repot2 membuat akun lagi. | (Margaret) Akun seperti apa yang ingin diberikan akses? dan apa perbedaan akses dari akun yang punya akses tidak terbatas dengan akun biasa. | (Valen) Membuat fitur bertanya kepada panitia agar semakin yakin sebelum mendaftar kegiatan kampus. |
+| **Round 4** | (Sabrina) Agar tidak kelewatan info serupa, berikan notifikasi yang menarik dengan bahasa yang bersahabat | (Cecil) Kalau berdasarkan tujuan kegiatan saja masih kurang, mungkin ditambahkan juga dari kegiatan tersebut masih berlangsung atau tidak supaya tidak salah | (Margaret) Berarti semua mahasiswa diwajibkan log in ke aplikasi dulu agar bisa mengakses? | (Valen) Akun yang punya akses untuk menyebarkan kegiatan kampus adalah akun yang telah diberi izin oleh fakultas atau universitas. Perbedaannya adalah akun yang punya akses tidak terbatas bisa mengupload dan mempromosikan kegiatan kampus sementara akun yang biasa hanya bisa melihat dan mencari kegiatan yang telah diupload. | (Miracle) Menambah fitur komen agar dapat melihat komentar dari orang-orang lain |
+| **Round 5** | (Cecil) Tetapi kalau semuanya muncul di notif akan membebani dan mengganggu. Mungkin berikan notifikasi sesuai dengan preferensi pengguna | (Margaret) Berarti sistem perlu mengetahui deadline registration dari setiap kegiatan yang diupload? | (Valen) Benar karena seti⁷ap mahasiswa perlu log in dengan username berupa sNRP dan password nya masing-masing yang secara default password sama dengan myUbaya. | (Miracle) Membuat proses pengajuan postingan agar semua bisa melakukan postingan tetapi harus di survey dan diterima sebelum bisa terupload | (Sabrina) Menambah kalender agar pendaftar dapat tau tanggal tanggal kegiatan dan melakukan prevensi kedouble an jadwal sibuk |
+
+## **4.2 ****Tabel**** *****How Might We***** (HMW) ****&**** Solusi**
+
+| **HMW** | ***Intended Action*** | ***Users*** | ***Desired Outcome*** |
+| --- | --- | --- | --- |
+| 1 | Merancang sistem pencarian kegiatan kampus yang praktis dan bebas ribet | Mahasiswa UBAYA | Mahasiswa bisa menemukan kegiatan kampus dengan cepat dan efisien |
+| 2 | Menyaring informasi kegiatan kampus sesuai dengan minat mahasiswa | Mahasiswa UBAYA | Mahasiswa mendapatkan informasi kegiatan kampus yang sesuai dengan minatnya |
+| 3 | Menyajikan informasi kegiatan kampus yang berlangsung saat ini | Mahasiswa UBAYA | Mahasiswa menerima informasi kegiatan kampus tepat pada waktu berlangsungnya |
+| 4 | Menciptakan platform informasi kegiatan kampus | Mahasiswa UBAYA yang tidak aktif membuka media sosial dan Mahasiswa UBAYA yang sedang mencari poin kemahasiswaan | Mahasiswa yang tidak aktif membuka media sosial sehingga tetap *up-to-date *dengan kepanitiaan dan kegiatan kampus serta mahasiswa yang sedang mencari poin kemahasiswaan bisa dengan mudah mencari kegiatan kampus |
+| 5 | Memberikan informasi kegiatan kampus | Mahasiswa baru | Mahasiswa baru mendapatkan informasi kegiatan kampus tanpa harus bergantung pada  relasi maupun kakak tingkat |
+| 6 | Menyediakan fitur filter atau kategorisasi kegiatan kampus | Mahasiswa UBAYA | Mahasiswa bisa menemukan divisi kepanitiaan yang sesuai dengan pengalaman dan kemampuannya |
+| 7 | Menyediakan sistem publikasi kegiatan yang adil | Penyelenggara kegiatan kampus | Setiap kegiatan kampus memiliki kesempatan yang sama untuk ditemukan oleh mahasiswa UBAYA |
+| 8 | Menyediakan fitur komunikasi antara calon pendaftar dan panitia | Mahasiswa UBAYA | Mahasiswa bisa berinteraksi dengan panitia secara langsung |
+| 9 | Menyediakan fitur *bookmark* atau simpan kegiatan | Mahasiswa UBAYA | Mahasiswa dapat melihat kembali kegiatan kampus yang diminati mereka dengan mudah |
+| 10 | Menyediakan pengingat otomatis menjelang penutupan pendaftaran kegiatan | Mahasiswa UBAYA | Mahasiswa tidak terlewat batas waktu pendaftaran |
+
+# **BAB V: DESAIN PRODUK**
+
+## **5.1 High Fidelity Prototype**
+
+*Login Page* (*User* Biasa &* Super User*)
+
+Pada halaman ini, pengguna bisa *login* akunnya masing-masing dimana pembeda akun *user* biasa dan *super* *user* adalah pengguna huruf ‘u’ di depan NRP dan ‘su’ di depan NRP atau juga nama akun. Selain itu ada *text* *box* untuk memasukkan *password* dari akun tersebut.
+
+*Home Page *(*User *Biasa)
+
+Untuk pengguna biasa, pada halaman *home* akan muncul poster kegiatan yang telah di *post* oleh *super* *user*. Dan pada masing-masing poster tersebut, pengguna dapat *like*, *comment*, *share* dan *save* postingan tersebut. Pada tiap postingan juga akan ada status kegiatan dan jika status merupakan “tertutup” maka tombol “Daftar Sekarang” akan dinonaktifkan, dan jika status merupakan “Terbuka” maka tombol “Daftar Sekarang” akan aktif.
+
+*Home Page *(*Super User*)
+
+Pada halaman *home *untuk *super user*, tampilan *home *akan mirip dengan adanya tombol *like*, *comment*, *share*, dan *save*. Tetapi yang membedakan adalah tombol “Daftar Sekarang” dinonaktifkan atau tidak dapat diklik. Apabila di klik maka akan muncul pemberitahuan bahwa super user tidak boleh mendaftar. Selain itu, pada halaman *home super user*, ada tombol tambah di sebelah *search bar* yang bisa untuk membuat formulir pendaftaran dan juga untuk membuat postingan.
+
+*Search *(*User *Biasa & *Super User*)
+
+Dari halaman home kedua user baik user biasa maupun super user, tampilan search bar akan tetap sama dengan adanya filter yang bisa digunakan untuk membantu mencari kategori kegiatan yang dicari ataupun mencari kegiatan yang diselenggarakan oleh sebuah organisasi.
+
+Daftar (*User *Biasa)
+
+ 
+
+Pada *home user* biasa, ketika di klik tombol “Daftar Sekarang” maka akan dipindahkan ke halaman ini sesuai dengan kegiatan masing-masing. Dimana *user *dapat mengisi data diri sesuai yang diminta oleh formulirnya dan dapat menyimpan formulir yang telah diisi tersebut.
+
+Buat Formulir + Buat Postingan (*Super User*)
+
+Sedangkan pada *home super user*, dapat membuat formulir dan membuat postingan. Jika tombol formulir ditekan maka akan muncul *form *yang dapat diedit dan super user dapat *custom form *sesuai dengan data peserta yang dibutuhkan. Setelah formulir tersebut selesai dibuat dan disimpan, *super user* dapat berpindah untuk membuat postingan dan akan muncul sesuai dengan halaman yang ada pada gambar ketiga. Pada halaman tersebut, *super user *dapat mengisi sesuai dengan data kegiatan yang mau diposting, serta juga dapat memilih dari beberapa formulir yang telah dibuat yang akan ditautkan ke tombol “Daftar Sekarang”.
+
+*Notification page* (*User *Biasa & *Super User*)
+
+Untuk fitur ini dimiliki oleh semua user baik user biasa maupun super user. Tampilannya juga memiliki tampilan yang sama yaitu adanya notifikasi yang berhubungan dengan kegiatan kampus yang diposting pada aplikasi ini.
+
+*Message *(*User *Biasa & *Super User*)
+
+Fitur *message *ini dimiliki oleh semua kalangan *user*, dimana baik *user *biasa dan *super user* dapat berkomunikasi satu sama lain dalam aplikasi untuk bertanya mengenai kegiatan ataupun kepentingan lainnya.
+
+*Profile* (*User *Biasa & *Super User*)
+
+Untuk semua *user *dapat membuka detail *profile *miliknya dan dapat melihat berbagai *settings *yang bisa digunakan dalam aplikasi. Selain itu, jika user menyimpan suatu postingan, postingan yang disimpan tersebut dapat dilihat pada halaman *profile *ini.
+
+## **5.2 Skenario Penggunaan ****&**** Estetika**
+
+	Dalam perancangan produk ini, ada beberapa hal yang menjadi pertimbangan untuk desain aplikasi secara keseluruhan. Selain itu, desain yang dibuat dari aplikasi ini diharapkan dapat menjawab permasalahan yang ada.
+
+### **5.2.1 *****User Flow***
+
+	***Log In***
+
+	  
+
+	
+
+***Chatting***
+
+	**    **
+
+**Daftar Kegiatan**
+
+	** **
+
+	**Cari Kegiatan (Filter)**
+
+	** **
+
+	**Buat Postingan (khusus Super User)**
+
+	**   **
+
+### **5.2.2 Konsep Visual**
+
+Tema desain utama aplikasi ini yaitu *modern *minimalis yang berfokus pada penyampaian informasi dengan struktur yang bersih dan tidak berlebihan yang membutuhkan kejelasan informasi.
+
+### **5.2.3 Elemen Estetika**
+
+***Color Palette***
+
+*Color palette* yang digunakan adalah warna yang diambil dari logo UBAYA. Dimana warna #802E2A (Maroon Gelap) dan juga warna #CB9136 (*Amber Gold*) digunakan sebagai warna aksen dari aplikasi, warna ini dipilih agar aplikasi tetap sesuai dan juga relevan dengan UBAYA yang ingin kami representasikan. Lalu ada warna #F7AF2A (Oranye Kekuningan) sebagai warna utama aplikasi untuk memberikan kontras warna yang tidak terlalu berbeda serta menggugah pengguna untuk aktif menggunakan aplikasi.
+
+***Typography***
+
+*Font header *yang digunakan yaitu font Lexend serta *font normal text *menggunakan Source Sans 3 yang memang didesain untuk  meningkatkan keterbacaan dan juga kecepatan pemahaman. *Font *ini sesuai dengan tujuan dari desain ini yaitu untuk menyampaikan informasi kegiatan kampus agar lebih mudah diakses oleh semua mahasiswa.
+
+***Navigation Bar***
+
+Sistem navigasi aplikasi dibuat dengan desain *Bottom Bar *yang sederhana dengan ikon universal dan familiar yang seringkali ditemukan di aplikasi lainnya sehingga membuat pengguna dapat menavigasi dengan mudah dalam aplikasi karena tidak perlu beradaptasi dengan alur navigasi yang baru. Dengan meletakkannya pada lokasi yang mudah dijangkau oleh ibu jari, pengguna dapat berpindah halaman dengan mudah. Pendekatan ini dapat meminimalisir beban kognitif pengguna sehingga pengguna dapat menggunakan aplikasi tanpa hambatan sejak penggunaan pertama.
+
+# **BAB VI: *****TEST***
+
+## **6.1 *****Heuristic Evaluation***
+
+	Setelah *prototype *aplikasi selesai, dilakukan tes heuristik oleh 2 anggota kami dengan memilih 3 *task *yang berhubungan dengan fitur utama aplikasi. Tiap anggota melakukan *test *dengan ketiga *task *tersebut dan memberikan penilaiannya masing-masing. Diantaranya *task *tersebut adalah : 
+
+### **6.1.1 Mencari Kegiatan**
+
+Berdasarkan dari hasil tes ditemukan adanya 2 pelanggaran prinsip heuristik ke 7 yaitu *Flexibility and Efficiency of Use *yaitu pada bagian filter yang hanya menyediakan filter berdasarkan kategori acara dan juga penyelenggara, serta juga sortir kegiatan. Tetapi pada umumnya saat mencari kegiatan selain melihat kategori lombanya, mahasiswa juga mencari kegiatan yang sesuai dengan jadwal kegiatannya dan mengatur sebisa mungkin mengikuti kegiatan yang tidak menabrak dengan jadwal kelasnya. Tetapi filter tersebut tidak ada sehingga kurang fleksibel dan kurang efisien saat mencari kegiatan menggunakan filter. 
+
+Selain itu, saat melihat banyak postingan pada umumnya kita dapat membuka akun yang posting kegiatan tersebut dan dapat melihat kegiatan apa yang telah diposting. Tetapi pada aplikasi ini masih belum ada fitur tersebut. Sehingga ketika kita ingin melihat kegiatan apa saja yang telah diposting oleh akun/ organisasi tersebut, kita harus mencarinya lewat filter yang membuat pengguna harus menavigasi ke *search bar* lagi. Sebaiknya pada postingan tersebut, ditambahkan *hyperlink *pada *text *"Oleh Universitas Surabaya" atau organisasi lainnya untuk langsung mengarahkan user ke halaman akun pembuat postingan. 
+
+### **6.1.2 Mendaftar *****Workshop***
+
+Pada hasil tes, ditemukan beberapa pelanggaran terhadap prinsip heuristik. Yang pertama ada pelanggaran pada prinsip ke 4 yaitu* Consistency and Standards *yang dimana pada halaman *home *tidak ada *profile picture* yang biasanya selalu ada untuk menunjukkan akun apa yang sedang tertaut. Sebaiknya *profile picture* pada halaman *home *sebaiknya tetap diberikan untuk memberikan kepastian kepada pengguna bahwa akun yang dimasukkan sudah benar seperti yang digunakan pada aplikasi lainnya. Lalu juga ada pelanggaran dimana pada beberapa aplikasi biasanya memberikan pemberitahuan saat pendaftaran sebentar lagi akan ditutup. Selain itu, penulisan kategori acara yang ditulis menggunakan tag biasa, dimana biasanya kategori ditulis atau berbentuk *tag*.
+
+Masih dengan prinsip yang sama, pada postingan, tidak ada *profile picture* akun yang memposting kegiatan dan juga menggunakan kata “Oleh Universitas Surabaya” yang dimana hal tersebut kurang lazim digunakan, dan biasanya akan memunculkan *profile picture* beserta nama akun yang memposting. Pada prinsip 8,* Aesthetic and Minimalist Design *dimana adanya animasi ketika *scroll *yang cukup mendistraksi pengguna. Sehingga dibilang melanggar prinsip ini karena animasi ini merupakan sebuah hal yang perlu, bahkan bisa dibilang dapat mengganggu.
+
+### **6.1.3 Membuat Postingan **
+
+Berdasarkan hasil tes ditemukan bahwa saat membuat postingan, ketika sedang membuat postingan, pengguna tidak dapat membuat *draft *untuk postingan tersebut. Karena terkadang ketika sedang membuat postingan, terkadang melupakan sesuatu dan ingin kembali dan tetap menyimpan hasil *edit *barusan. Jadi tidak adanya draft pada aplikasi membuat pengguna harus menulis ulang lagi dari awal. Sedangkan ketika postingan disimpan dulu menjadi draft sebelum diposting, maka walaupun aplikasi ditutup, progres *edit *barusan akan tetap tersimpan dan pengguna dapat melanjutkan *edit*. Hal tersebut menandakan bahwa adanya pelanggaran heuristik ke 4 *Consistency and Standards *dan juga prinsip ke 7 *Flexibility and Efficiency of Use *karena jika melihat aplikasi dengan konsep serupa memiliki fitur untuk menyimpan jadi *draft*.
+
+Selain itu, adanya pelanggaran pada prinsip 8 yaitu *Aesthetic and Minimalist Design *dimana adanya tombol dengan fungsi serupa pada halaman buat postingan. Karena adanya tombol “Image” dan juga “Add File” dimana gambar juga merupakan file. Adanya tombol dengan tujuan serupa dapat membuat pengguna bingung karena adanya 2 tombol dengan tujuan yang sama. Sebaiknya memilih salah satu tombol dan menghapus tombol yang tidak diperlukan.
+
+# **BAB VII: PENUTUP**
+
+## **7.1 Kesimpulan **
+
+	Berdasarkan dari seluruh tahapan yang telah dilakukan, dapat disimpulkan bahwa permasalahan yang dialami oleh mahasiswa adalah permasalahan dalam kesulitan mencari kegiatan kampus, dimana hal ini juga telah didukung dengan adanya data kuesioner. Oleh karena itu, pengembangan aplikasi ini dirancang sebagai solusi untuk membantu para mahasiswa UBAYA dalam mencari dan mengelola partisipasi kegiatan kampus dengan efektif dan efisien.
+
+## **7.2 Saran Pengembangan**
+
+	Setelah pengembangan aplikasi tahap pertama selesai dijalankan, ada rencana pengembangan lebih lanjut pada bagian akun *super user*. Selain itu juga akan pengembangan ke Mode Gelap. Hal ini dikarenakan target utama pengguna merupakan anak muda yang sering diidentikkan dengan kesukaannya menggunakan Mode Gelap.
+
+# **DAFTAR PUSTAKA**
+
+Ginantra, N. L. W. S. R., & Atmaja, K. J. (2018). Aplikasi manajemen kegiatan kemahasiswaan
+
+STIKI Indonesia berbasis web. *Jurnal Ilmiah Teknologi Informasi Asia*, *12*(1), 1.
+
+[https://doi.org/10.32815/jitika.v12i1.209](https://doi.org/10.32815/jitika.v12i1.209). Diakses dari 
+
+[https://www.researchgate.net/publication/328950334_APLIKASI_MANAJEMEN_KEGIATAN_KEMAHASISWAAN_STIKI_INDONESIA_BERBASIS_WEB](https://www.researchgate.net/publication/328950334_APLIKASI_MANAJEMEN_KEGIATAN_KEMAHASISWAAN_STIKI_INDONESIA_BERBASIS_WEB) 
+
+Kartikasari, F. (2017). Kemelekan dan partisipasi mahasiswa terhadap aktivitas kampus 
+
+Universitas Airlangga. *LIBRI-NET*, *6*(3), 45–46. [https://repository.unair.ac.id/67079/](https://repository.unair.ac.id/67079/) 
+
+Universitas Surabaya. (2025). Pedoman Akademik 2025. 
+
+# **LAMPIRAN**
+
+| Komponen | Link |
+| --- | --- |
+| *Google Form *Kuesioner | [https://forms.gle/vE6tUoz4Aqqo5UYh9](https://forms.gle/vE6tUoz4Aqqo5UYh9) |
+| Spreadsheet Jawaban Kuesioner | [https://docs.google.com/spreadsheets/d/1RAaKZyJR4gBwToQMQTCjYSE5Nak7lULdhwCNF-1fCcQ/edit?usp=sharing](https://docs.google.com/spreadsheets/d/1RAaKZyJR4gBwToQMQTCjYSE5Nak7lULdhwCNF-1fCcQ/edit?usp=sharing) |
+| *Prototype *Figma | [https://www.figma.com/proto/19FzWKc4pe8siPWBx2XAmV/HCI-2026?node-id=0-1&t=AsaIFxcIu6v4s0fR-1](https://www.figma.com/proto/19FzWKc4pe8siPWBx2XAmV/HCI-2026?node-id=0-1&t=AsaIFxcIu6v4s0fR-1) |
+| Poster | [https://drive.google.com/file/d/1_E5nELUqlo7ea0NRTfDgPWdd8_6a9N2g/view?usp=drive_link](https://drive.google.com/file/d/1_E5nELUqlo7ea0NRTfDgPWdd8_6a9N2g/view?usp=drive_link) |
+| Lembar Kerja Heuristik | [https://docs.google.com/spreadsheets/d/1lSvZqWw5xUbdKV8YGNZ-1Lh3XShHlcyP-btNq7jbaBc/edit?usp=sharing](https://docs.google.com/spreadsheets/d/1lSvZqWw5xUbdKV8YGNZ-1Lh3XShHlcyP-btNq7jbaBc/edit?usp=sharing) |
+| PPT | [https://canva.link/70ecsoofmu2dpak](https://canva.link/70ecsoofmu2dpak) |

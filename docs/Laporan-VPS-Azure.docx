@@ -1,0 +1,739 @@
+**LAPORAN PROSES PEMBUATAN VIRTUAL PRIVATE SERVER **
+
+**OPERATING SYSTEM KP A**
+
+** **
+
+**KELOMPOK 4: INSERT TITLE HERE**
+
+**Anggota Kelompok:**
+
+**160425004 – Cecilia Quincy Tanaya**
+
+**160425020 – Sabrina Hans**
+
+**160425069 – Miracle Lee Gavrila Tangkulung**
+
+**160425128 – Christopher Elpras Angis**
+
+**160425113 – Ardhie Nurdianto**
+
+** **
+
+** **
+
+**PROGRAM STUDI TEKNIK INFORMATIKA**
+
+**FAKULTAS TEKNIK**
+
+**UNIVERSITAS SURABAYA**
+
+**2026**
+
+**PEMBAGIAN TUGAS KELOMPOK**
+
+**ROOT/SUPER USER:**
+
+**Miracle Lee Gavrila Tangkulung (160425069):**
+
+- Pembuatan Struktur Laporan
+
+- Pembuatan Laporan
+
+- Pembuatan VM dari VPS
+
+**USER:**
+
+**Cecilia Quincy Tanaya (160425004):**
+
+- Pengecekan, perbaikan, dan penambahan laporan
+
+- Pengujian akses pengguna user
+
+- Melakukan backup website mandiri
+
+- Pembuatan website mandiri
+
+**Sabrina Hans (160425020):**
+
+- Pengecekan, perbaikan, dan penambahan laporan
+
+- Maintain server
+
+- Melakukan backup website mandiri
+
+- Pembuatan website mandiri
+
+**Christopher Elpras Angis (160425128):**
+
+- Pengecekan, perbaikan, dan penambahan laporan
+
+- Melakukan backup website mandiri
+
+- Pembuatan website mandiri
+
+**Ardhie Nurdianto (160425113):**
+
+- Pengecekan, perbaikan, dan penambahan laporan 
+
+- Melakukan backup website mandiri
+
+- Pembuatan website mandiri
+
+** DAFTAR ISI**
+
+	**BAB I INSTALASI DAN KONFIGURASI VIRTUAL MACHINE DI AZURE**	**4**
+
+	1.1 Introduksi Microsoft Azure	4
+
+	1.2 Pembuatan Virtual Machine di Microsoft Azure	4
+
+	1.3 Pengujian Koneksi ke Virtual Machine	7
+
+	1.4 Instalasi OS Ubuntu pada VM layanan VPS	9
+
+	**BAB II Konfigurasi Pengguna dan Hak Akses**	**10**
+
+	2.1 Pembuatan Akun Pengguna	10
+
+	2.2 Pengecekan Hak Akses Pengguna	10
+
+	2.3 Pengujian Hak Akses Pengguna	11
+
+	**BAB III Konfigurasi Layanan Server**	**13**
+
+	3.1 Instalasi dan Konfigurasi Web Server	13
+
+	3.2 Instalasi dan Konfigurasi Database Server	16
+
+	3.3 Instalasi dan Konfigurasi phpMyAdmin	20
+
+	3.4 Konfigurasi SSH	25
+
+	3.5 Konfigurasi FTP	26
+
+	**BAB IV Implementasi Website Mahasiswa**	**30**
+
+	4.1 Pembuatan Struktur Direktori Website	31
+
+	4.2 Pembuatan Halaman Biodata	32
+
+	4.3 Konfigurasi Virtual Directory Website	32
+
+	**BAB V Monitoring dan Pemeliharaan Server**	**37**
+
+	5.1 Monitoring Kinerja Server	37
+
+	5.2 Backup dan Pemeliharaan Sistem	38
+
+	5.3 Konfigurasi Keamanan Server	43
+
+	5.3.1 Firewall	43
+
+	5.3.2 Hardening SSH	44
+
+	5.3.3 Antivirus	45
+
+# BAB I INSTALASI DAN KONFIGURASI VIRTUAL MACHINE DI AZURE
+
+## 1.1 Introduksi Microsoft Azure 
+
+Microsoft Azure adalah platform *cloud computing* yang dikembangkan oleh Microsoft. Azure menyediakan berbagai layanan seperti penyimpanan data, jaringan, dan komputasi virtual. Pada proyek ini, layanan yang digunakan adalah **Virtual Machine (VM)** milik Azure. Layanan ini dipilih karena memungkinkan pengguna untuk membuat dan menjalankan server virtual tanpa perlu menyediakan perangkat keras secara langsung. Selain itu, Azure VM menawarkan kemudahan konfigurasi, fleksibilitas dalam pemilihan spesifikasi server, serta dapat diakses dari mana saja melalui koneksi internet.
+
+Dalam proyek ini digunakan layanan **Virtual Private Server (VPS)** berbasis Azure Virtual Machine untuk memenuhi kebutuhan instalasi dan konfigurasi sistem operasi Ubuntu. Penggunaan Azure VM juga memudahkan proses pembelajaran administrasi server karena lingkungan yang disediakan menyerupai server nyata yang digunakan di dunia industri. Selain itu, Universitas Surabaya (UBAYA) menyediakan akses ke Microsoft Azure melalui program *Azure for Students* yang memberikan kredit sebesar 100 USD sehingga layanan ini dapat dimanfaatkan tanpa biaya tambahan selama proses pembelajaran.
+
+## 1.2 Pembuatan Virtual Machine di Microsoft Azure 
+
+Sesuai dengan ketentuan tugas pertama, yaitu melakukan instalasi sistem operasi Ubuntu pada layanan VPS, maka **Ubuntu** dipilih sebagai sistem operasi yang akan digunakan pada Virtual Machine. Adapun langkah-langkah pembuatan Virtual Machine di Microsoft Azure adalah sebagai berikut:
+
+- Buka situs **portal.azure.com** kemudian masuk menggunakan akun Microsoft Azure yang dimiliki.
+
+- Arahkan kursor ke menu **Virtual Machines**, kemudian pilih **Create** dan klik **Virtual Machine** untuk memulai proses pembuatan VM.
+
+- Masukkan info wajib (*): untuk resource group (bebas), virtual machine (nama kelompok), dan region (sesuai lokasi terdekat).
+
+- Zone biarkan, Pilih image (Ubuntu Server 24.04 LTS - x64 Gen2)
+
+- Pada bagian size pilih yang sesuai budget dengan memperhatikan vCPU dan RAM
+
+- Ubah Authentication type dari SSH public key menjadi password agar mudah diakses
+
+- Pada bagian disks, gunakan standard SSD dengan ukuran 30 GB dari Microsoft Azure
+
+- Pada bagian networking pilih semua bagian yang ada di select inbound ports, yaitu SSH (22) lalu centang bagian* delete NIC when VM is deleted* agar credit nya tidak terus disedot karena public IP membutuhkan biaya dan alasan lainnya adalah untuk keamanan
+
+- Setelah itu, cek semua konfigurasi yang ada, lalu klik ”Review & Create”
+
+- Setelah proses deployment selesai klik go to resource
+
+## 1.3 Pengujian Koneksi ke Virtual Machine
+
+Setelah selesai membuat *virtual machine*, untuk memasuki server *virtual machine* yang sudah dibuat akan menggunakan terminal. Berikut adalah langkah-langkahnya :
+
+- Buka halaman **Virtual Machine** yang sudah dibuat di Azure.
+
+- Di halaman Overview VM, lihat bagian kanan atas dan cari tombol **Connect**.
+
+- Klik tombol **Connect** sehingga muncul menu dropdown seperti pada gambar lalu pilih salah satu metode koneksi:
+
+- **Connect** → biasanya untuk SSH (Linux) atau RDP (Windows).
+
+- **Connect via Bastion** → jika menggunakan Azure Bastion tanpa membuka port publik.
+
+- **Salin** SSH command yang bisa generate
+
+- Buka Terminal kemudian paste SSH command ke dalam terminalnya
+
+- Masukkan password, dan akan berhasil koneksi ke Servernya
+
+	
+
+## 1.4 Instalasi OS Ubuntu pada VM layanan VPS
+
+Pada projek ini, digunakan layanan Azure Virtual Machine dengan sistem operasi Ubuntu. Pada saat pembuatan VM, Azure menyediakan berbagai pilihan *image* sistem operasi yang telah disiapkan sebelumnya, termasuk Ubuntu. Oleh karena itu, proses instalasi sistem operasi tidak dilakukan secara manual seperti pada komputer fisik yang menggunakan media instalasi ISO. Pengguna hanya perlu memilih *image* Ubuntu yang tersedia saat proses pembuatan Virtual Machine, kemudian Azure akan secara otomatis melakukan *deployment* dan konfigurasi awal sistem operasi pada VM yang dibuat.
+
+Akibatnya, tidak ada dokumentasi yang dapat ditampilkan untuk proses ini, hanya menunjukkan proses pemilihan *image* Ubuntu dan hasil VM yang telah berhasil dibuat. Meskipun tidak terlihat proses instalasi secara rinci, Ubuntu sebenarnya telah terinstal secara otomatis oleh layanan Azure selama proses pembuatan Virtual Machine.
+
+Secara umum, proses instalasi sistem operasi Ubuntu pada layanan VPS atau Virtual Machine dapat dilakukan dengan dua metode. Metode pertama adalah menggunakan *pre-configured image* yang disediakan oleh penyedia layanan cloud, seperti yang dilakukan pada Azure. Metode kedua adalah instalasi manual menggunakan berkas ISO Ubuntu.
+
+Apabila instalasi dilakukan secara manual, tahapan yang umumnya dilakukan adalah:
+
+- Membuat Virtual Machine baru dan menentukan spesifikasi server (CPU, RAM, dan penyimpanan).
+
+- Mengunggah atau memilih berkas ISO Ubuntu sebagai media instalasi.
+
+- Melakukan proses *boot* melalui ISO Ubuntu.
+
+- Memilih bahasa dan konfigurasi instalasi.
+
+- Menentukan partisi penyimpanan dan lokasi instalasi.
+
+- Membuat akun pengguna serta kata sandi administrator.
+
+- Menunggu proses penyalinan dan pemasangan sistem operasi selesai.
+
+- Melakukan *restart* VM dan masuk ke sistem Ubuntu yang telah terinstal.
+
+Namun pada Microsoft Azure, tahapan instalasi manual tersebut disederhanakan melalui penggunaan *Ubuntu Image*. Dengan demikian, sistem operasi Ubuntu telah terpasang secara otomatis setelah proses pembuatan Virtual Machine selesai dilakukan.
+
+# BAB II Konfigurasi Pengguna dan Hak Akses
+
+## 2.1 Pembuatan Akun Pengguna
+
+Langkah selanjutnya yaitu membuat akun untuk setiap anggota kelompok “Insert Title Here” untuk memenuhi bagian pertama ketentuan “Masing-masing anggota mempunyai user sendiri-sendiri. Hanya Ketua tim mendapatkan akses super user (5)”. Berikut adalah langkah-langkahnya :
+
+- Berikutnya untuk membuat user dengan *sudo adduser nama-anggota*
+
+- Setelah memasukan password, masukkan informasi dan konfirmasikan dengan *Y*
+
+	
+
+- Lakukan untuk semua anggota dan konfirmasikan telah terbuat semuanya dengan                  *getent passwd | grep -E **"**sabrina|cecilia|ardhie|christ**"**. *Jika muncul semua, artinya sudah terbuat.
+
+## 2.2 Pengecekan Hak Akses Pengguna
+
+Setelah membuat user-user untuk setiap anggota, untuk membuktikan bahwa hak akses pengguna adalah user bukan *super user *untuk bagian terakhir ketentuan “Masing-masing anggota mempunyai user sendiri-sendiri. Hanya Ketua tim mendapatkan akses super user (5)”, lakukan : 
+
+- Cek dulu status akun yang membuat server dengan* groups*
+
+- Karena termasuk grup *sudo*, “Miracle” sudah memenuhi posisi ketua yang memiliki akses Super User. Dan semua anggota lainnya merupakan user biasa.
+
+- Untuk memastikannya sekali lagi bahwa hanya Miracle yang termasuk Super User, bisa menggunakan *getent group sudo *
+
+Ini membuktikan bahwa hanya ketua tim yang memiliki akses Super User.
+
+## 2.3 Pengujian Hak Akses Pengguna
+
+Setelah membuktikan bahwa telah membuat User untuk setiap anggota dan hanya ketua yang di kelompok Super User, akan dilakukan pengujian perbedaan antara User dan Super User. 
+
+Berikut adalah langkah-langkahnya:
+
+- Pertama-tama, login sebagai salah satu User biasa dengan *ssh nama@vmipaddress*
+
+	
+
+	
+
+- Saat mencoba command yang membutuhkan **sudo / sudo command**, di kasus ini *sudo apt update, *akan menampilkan **respons gagal**
+
+	
+
+- Lalu sekarang login sebagai **Super User**
+
+- Saat mencoba **sudo command** yang **sama**, akan **berhasil**.
+
+# BAB III Konfigurasi Layanan Server
+
+## 3.1 Instalasi dan Konfigurasi Web Server
+
+Web server merupakan layanan yang menerima permintaan dari pengguna melalui browser dan mengirimkan halaman web yang diminta. Untuk projek ini, kami akan menggunakan Apache Web Server karena Apache adalah salah satu web server yang gratis, fleksibel, dan *open-source*. Instalasi web server ini penting agar website dalam VPS dapat diakses melalui jaringan internet maupun lokal.
+
+Berikut adalah langkah-langkah instalasi apache web server:
+
+- Gunakan *sudo apt update *untuk memperbarui package database lokal, yang akan diinstal
+
+- Melakukan instalasi apache dengan *sudo apt install apache2*
+
+- Setelah konfirmasi dengan memasukkan *Y* akan menjalankan instalasinya
+
+Setelah selesai menginstall Apache, selanjutnya adalah melakukan konfigurasikan Apachenya.
+
+Berikut adalah langkah-langkah konfigurasi apache web server:
+
+- Buka file config Apache2 dengan *sudo nano /etc/apache2/apache2.conf*
+
+- Masukkan *ServerName VPS-IP *ke dalam filenya dan save
+
+- Coba apakah syntax file config sudah aman dengan *apache2ctl configtest*
+
+- Jika aman, restart Apache2 dengan *sudo systemctl restart apache2 *untuk mengimplementasikan
+
+- Setelah itu cek status service dengan *sudo systemctl status apache2*
+
+- Jika tidak ada masalah, akan bisa tertampil di dalam browser di [*http://IPSERVER*](http://ipserver)
+
+Jika tidak bisa tertampil seperti gambar diatas, kemungkinan besar ada kesalahan saat mengikuti langkah-langkah pembuatan VM sebelumnya. Berikut ini adalah cara memperbaikinya :
+
+- Mungkin melupakan untuk mengizinkan port 80 atau html. Bisa dilihat di bagian *Network Settings *di website Azure
+
+- Jika tidak ada *Inbound port rules *dengan port 80 yang aktif, maka harus membuat yang baru dengan *+Create port rule*
+
+- Masukkan setting seperti yang di gambar berikut dan tekan Add, namanya bebas.
+
+	
+
+- Kalau sudah buat akan muncul sebagai berikut
+
+- Sekarang cek di browser dengan IPnya
+
+## 3.2 Instalasi dan Konfigurasi Database Server
+
+Database server merupakan layanan untuk menyimpan, mengelola, dan mengakses data secara terstruktur. Untuk projek ini, MySQL digunakan sebagai database server karena penggunaannya gratis, *open-source*, ber performa tinggi, dan mudah diintegrasikan dengan bahasa pemrograman web seperti PHP, yang akan digunakan nantinya. Database server ini akan digunakan untuk menyimpan data yang diperlukan website yang dijalankan pada VPS
+
+Berikut adalah tahap menginstall MySQL
+
+- Gunakan *sudo apt update *untuk memperbarui package database lokal, yang akan diinstal
+
+- Melakukan instalasi MySQL dengan sudo apt install mysql-server 
+
+- Masukkan *Y* akan berjalan instalasi
+
+- Cek status MySQL dengan *sudo systemctl status mysql *
+
+Konfigurasi database dilakukan dengan membuat database, membuat akun pengguna database, serta memberikan hak akses kepada pengguna tersebut. Pengujian dilakukan dengan melakukan login menggunakan akun yang telah dibuat dan memastikan bahwa database dapat diakses dengan baik. 
+
+Berikut adalah tahap konfigurasi MySQL
+
+- Masuk ke MySQL dengan *sudo mysql*
+
+- Buat database dengan* CREATE DATABASE nama_database; *
+
+- Pastikan databasenya ada dengan *SHOW DATABASES;*
+
+- Buat user database dengan *CREATE USER ‘nama’@’localhost’ IDENTIFIED BY ‘password’;*
+
+- Beri akses kepada user yang baru dibuat dengan
+
+*GRANT ALL PRIVILEGES ON nama_database.* TO 'nama'@'localhost'; *
+
+- Refresh izin akses MySQL dengan *FLUSH PRIVILEGES;*
+
+- Pastikan usernya ada dengan *SELECT User, Host FROM mysql.user; *
+
+- Keluar MySQL dengan *EXIT; *
+
+- Login ke user baru dengan *mysql -u nama -p *dan masukkan passwordnya
+
+- Cek database yang user ada aksesnya dengan *SHOW DATABASES;*
+
+## 3.3 Instalasi dan Konfigurasi phpMyAdmin
+
+phpMyAdmin merupakan aplikasi berbasis web yang berguna untuk mengelola Database Server atau MySQL melalui antarmuka grafis. Dan mempermudah proses administrasi database pada server. Tapi sebelum itu diperlukan PHP sebagai bahasa pemrograman sisi server yang bertugas memproses halaman web dinamis.
+
+Berikut adalah langkah-langkah instalasi PHP
+
+- Gunakan *sudo apt update *untuk memperbarui package database lokal, yang akan diinstal
+
+- Install PHP dan yang dibutuhkan dengan *sudo apt install php libapache2-mod-php php-mysql -y *(-y untuk langsung input yes)
+
+- Cek versi PHPnya dengan *php -v*
+
+- Terapkan package dengan merestart apache dengan *sudo systemctl restart apache2 *
+
+- Coba menggunakan PHP dengan membuat file dengan *sudo nano /var/www/html/file.php *
+
+- Dan mengisikan filenya dengan isi sebagai berikut
+
+- Cek di browser dengan [*http://IP_VPS/file.php*](http://ip_vps/file.php)
+
+- Untuk keamanan hapus file setelah pengujian dengan  *sudo rm /var/www/html/info.php* karena tertera informasi detail mengenai konfigurasi server yang dapat menjadi celah keamanan.
+
+Dengan kombinasi Apache, PHP, MySQL, dan phpMyAdmin, administrator dapat mengelola database secara lebih mudah melalui browser. 
+
+Berikut adalah langkah-langkah Instalasi phpMyAdmin
+
+- Melakukan instalasi dengan *sudo apt install phpmyadmin -y *
+
+- Setelah instalasi selesai, akan muncul halaman seperti berikut ini yang berisi tentang server mana yang ingin dihubungkan dengan phpMyAdmin. Pilih apache2 (jika belum terpilih) dengan cara menekan arrow atas lalu tekan enter
+
+- Lalu akan muncul halaman berikut, yaitu halaman persetujuan konfigurasi phpMyAdmin, arahkan pada yes (dengan cara klik arrow atas/bawah) lalu klik enter
+
+- Selanjutnya, ada halaman memasukkan password, masukkan saja password yang ingin digunakan lalu tekan enter
+
+- Halaman selanjutnya adalah halaman konfirmasi password, ketik kembali password lalu tekan enter 
+
+- Tambahkan fitur enkripsi dengan *sudo phpenmod mcrypt mbstring*
+
+- Terapkan dengan merestart apache dengan *sudo systemctl restart apache2*
+
+- Sekarang integrasikan Apache Web Server dengan phpMyAdmin dengan membuka config apache dengan *sudo nano /etc/apache2/apache2.conf*
+
+- Masukkan *Include /etc/phpmyadmin/apache.conf *ke dalam filenya dan save
+
+- Coba apakah syntax file config sudah aman dengan *apache2ctl configtest*
+
+- Jika aman, restart Apache2 dengan *sudo systemctl restart apache2 *untuk mengimplementasikan perubahan tersebut
+
+- Setelah itu cek status service dengan *sudo systemctl status apache2*
+
+- Jika tidak ada masalah, akan bisa tertampil di dalam browser di [*http://IP_VPS/*](http://ip_vps/file.php)*phpmyadmin*
+
+Jika bermasalah bisa mengikuti langkah-langkah berikut
+
+- Hapus line *Include /etc/phpmyadmin/apache.conf *di* /etc/apache2/apache2.conf*
+
+- Cek apakah hubungan symlink atau koneksi apache antara phpMyAdmin ada atau tidak dengan * ls -l /etc/apache2/conf-enabled/phpmyadmin.conf* seharusnya muncul seperti berikut ini
+
+- Kalau tidak ada buatlah dengan menggunakan* *
+
+*sudo ln -s /etc/phpmyadmin/apache.conf /etc/apache2/conf-enabled/phpmyadmin.conf*
+
+- Coba apakah syntax file config sudah aman dengan *apache2ctl configtest*
+
+- Restart Apache2 dengan *sudo systemctl restart apache2 *untuk mengimplementasikan
+
+- Coba buka di browser di [*http://IP_VPS/*](http://ip_vps/file.php)*phpmyadmin*
+
+## 3.4 Konfigurasi SSH
+
+Secure Shell (SSH) merupakan protokol jaringan yang digunakan untuk mengakses dan mengelola server dengan jarak jauh melalui terminal dengan aman. Dan memungkinkan administrator melakukan konfigurasi, pemeliharaan, dan monitoring server tanpa harus di lokasi fisik server.
+
+Berikut adalah langkah-langkah menginstall SSH:
+
+- Karena dengan menggunakan Azure saat membuat VM, SSH sudah menjadi bagian dari instalasi dasar. Oleh karena itu tidak diperlukan instalasi dan lakukan pengecekan status SSH dengan *sudo systemctl status ssh.*
+
+Jika tidak mengetahui hal tersebut tidak masalah karena hal berikut
+
+- Lakukan *sudo apt update* terlebih dahulu untuk sinkronisasi paket dengan server pusat.
+
+- Lalu ketik *sudo apt install openssh-server -y, *dapat dilihat proses instal tidak dilakukan dan muncul tulisan openssh-server sudah ada dan pada versi terbarunya.
+
+- Setelah itu lakukan pengecekan terhadap status SSH dengan *sudo systemctl status ssh.*
+
+- Jika belum jalan pakai *sudo systemctl start ssh*
+
+- Agar otomatis saat boot pakai *sudo systemctl enable ssh*
+
+- Periksa port 22
+
+## 3.5 Konfigurasi FTP
+
+File Transfer Protocol (FTP) merupakan layanan untuk melakukan transfer file antara komputer klien dan server. Untuk projek ini, FTP digunakan untuk memudahkan proses management file website yang ada di VPS. Selain itu, FTP memungkinkan pengguna untuk mengelola data secara jarak jauh serta mempermudah transfer file berukuran besar. Untuk mengaksesnya, dibutuhkan client dimana WinSCP Client akan digunakan untuk project ini. WinSCP dipilih karena UI-nya yang mudah dipahami serta fitur otomatisasi bawaan yang memudahkan sinkronisasi direktori.  
+
+Berikut merupakan cara penginstalan dan konfigurasi FTP : 
+
+- Update package instalasi ke yang paling baru dengan *sudo apt update*
+
+D²
+
+- Menginstal vsftpd* sudo apt install vsftpd -y*
+
+- Memastikan layanan berjalan *sudo systemctl status vsftpd*
+
+- Jika belum jalan *sudo systemctl start vsftpd*
+
+- Untuk jalan saat server diaktifkan *sudo systemctl enable vsftpd*
+
+- Membuat backup konfigurasi *sudo cp /etc/vsftpd.conf /etc/vsftpd.conf.bak*
+
+- Membuka file konfigurasi *sudo nano /etc/vsftpd.conf*
+
+- Mengubah konfigurasi sesuai dengan dibawah ini 
+
+anonymous_enable=NO
+
+local_enable=YES
+
+write_enable=YES
+
+local_umask=022
+
+chroot_local_user=YES
+
+allow_writeable_chroot=YES
+
+pasv_enable=YES
+
+pasv_min_port=40000
+
+pasv_max_port=40100
+
+pasv_address=40.81.20.61
+
+- Menyimpan konfigurasi dengan CTRL + O, ENTER, Dan exit dengan CTRL + X
+
+- Restart layanan FTP* sudo systemctl restart vsftpd *
+
+- Membuka port FTP di  *Azure Portal → Virtual Machine → Networking → Add Inbound Rule *
+
+Berikut merupakan pengujian FTP (Mengupload/Mengirim dan Mendownload/Menerima)
+
+- Pastikan layanan aktif dengan *sudo systemctl status vsftpd *
+
+- Cek apakah port 21 terbuka *sudo ss -tlnp | grep :21 *
+
+- Buka WinSCP dan connect ke servernya pilih *FTP, Hostname,, Username, Password, dan Port 21*
+
+- Dalam projek ini, terdapat ketentuan untuk memakai FTP bukan SFTP, sehingga selanjutnya akan menggunakan plain FTP
+
+	
+
+- Uji Upload suatu file
+
+- Uji Download dengan mendownload kembali filenya
+
+# BAB IV Implementasi Website Mahasiswa
+
+## 4.1 Pembuatan Struktur Direktori Website
+
+Pertama-tama, dimulai dengan pembuatan struktur direktori website untuk setiap anggota. Setiap anggota memiliki direktori sendiri di dalam folder web server yang berfungsi sebagai tempat penyimpanan file website pribadi. Selain itu akan diatur hak akses dan kepemilikan agar setiap anggota hanya bisa mengelola filenya sendiri sesuai ketentuan “Masing-masing anggota membuat folder… dengan hak akses owner tersebut (10)”
+
+Berikut merupakan cara pembuatannya : 
+
+- Untuk membuat direktori setiap anggota dalam direktori */var/www *dilakukan dengan *sudo mkdir /var/www/NRP *(disini, saya memakai ‘\’ agar bisa dijalankan sekaligus)
+
+- Check kembali untuk memastikan folder direktori setiap anggota sudah dibuat dengan menggunakan *ls -l /var/www *
+
+- Selanjutnya, untuk mengubah ownership/kepemilikan folder direktori agar bisa diakses untuk masing-masing pemilik NRP dengan menggunakan *sudo chown user:user /var/www/sNRP*
+
+- Lalu, untuk mengatur permission/izin dengan menggunakan kode *sudo chmod 755 *sehingga pemilik folder direktori dapat menjadi owner atas folder direktori tersebut (Group dan Others hanya bisa read dan execute, sedangkan Owner bisa read, write dan execute)
+
+- Untuk mengecheck kepemilikan dan izin folder direktori, bisa dengan* ls -ld /var/www/160425**
+
+d → direktori
+
+rwxr-xr-x → permission **755 **(x = execute, r = read, w = write, rwxr = owner)
+
+Miracle pertama → **owner**
+
+## 4.2 Pembuatan Halaman Biodata
+
+Pada tahap ini dibuat halaman biodata untuk setiap anggota kelompok menggunakan HTML. Setiap anggota membuat file index.html di dalam folder website masing-masing dengan desain yang berbeda sesuai kreativitas. 
+
+Berikut adalah cara membuat halaman
+
+- Masing-masing anggota masuk ke folder web masing-masing dengan *cd /var/www/NRP*
+
+	
+
+- Kemudian memuat file dengan *nano index.html*
+
+- Masing-masing anggota buatlah website sesuai biodata masing-masing
+
+- Simpan file dengan **Ctrl + O ****>**** Enter ****>**** Ctrl + X**
+
+- Pastikan file dibuat dengan *ls -l*
+
+## 4.3 Konfigurasi Virtual Directory Website
+
+Pada tahap ini dilakukan konfigurasi Virtual Directory (Alias) pada Apache agar setiap folder website mahasiswa dapat diakses menggunakan URL yang telah ditentukan tanpa mengubah struktur direktori di dalam server.
+Berikut adalah langkah-langkah konfigurasi Alias:
+
+- Membuat file konfigurasi VHost *sudo nano /etc/apache2/sites-available/000-default.conf*
+
+- Tambahkan konfigurasi baru seperti berikut untuk masing-masing directory anggota
+
+	*Alias /mahasiswaNRP /var/www/NRP*
+
+*<**Directory /var/www/NRP**>*
+
+*Options Indexes FollowSymLinks*
+
+*AllowOverride All*
+
+*Require all granted*
+
+*<**/Directory**>** *
+
+- Simpan file dengan **Ctrl + O ****>**** Enter ****>**** Ctrl + X**
+
+- Periksa konfigurasi apache dengan *sudo apache2ctl configtest*
+
+- Restart apache dengan *sudo systemctl restart apache2*
+
+- Pastikan apache berjalan dengan *sudo systemctl status apache2*
+
+Berikut adalah pengecekan setiap website anggota:
+
+- Buka browser pilihanmu dan cari *ipvps/mahasiswaNRP*
+
+# BAB V Monitoring dan Pemeliharaan Server
+
+## 5.1 Monitoring Kinerja Server
+
+Monitoring server bertujuan untuk mengetahui kondisi server secara real time sehingga administrator dapat mendeteksi apabila terjadi penggunaan sumber daya yang berlebihan atau adanya gangguan pada layanan.
+
+Berikut adalah cara melakukan monitoring CPU, RAM, Virtual Memory (Swap), dan Storage
+
+- Monitoring penggunaan CPU
+
+Gunakan *top*
+
+- Monitoring penggunaan RAM dan Virtual Memory (Swap)
+
+Gunakan *free -h*
+
+- Monitoring Storage/Penyimpanan
+
+Gunakan *df -h*
+
+## 5.2 Backup dan Pemeliharaan Sistem
+
+Backup dilakukan untuk menghindari kehilangan data apabila terjadi kerusakan sistem atau kesalahan pengguna. Serta pembaharuan atau mengupdate systemnya sangat penting untuk memperbaiki masalah, meningkatkan keamanan, dan memperbarui softwarenya.
+
+Berikut adalah cara melakukan backup database MySQL dan file Website, serta mengupdate sistem
+
+- Backup Database MySQL 
+
+- Buatlah program untuk menjalankan backup dengan *sudo nano namaprogram.sh*
+
+- Masukkan kode berikut *mysqldump -u root -p nama_database **>** /lokasi_directory/namaprogram.sql*
+
+(setelah -p masukkan password pengguna)
+
+- Berikan izin untuk jalan dengan *chmod +x namaprogram.sh*
+
+- Buka crontab untuk backup otomatis dengan *crontab -e *(untuk penggunaan pertama *crontab -e*, akan diminta memilih editor, pilih /bin/nano (1))
+
+- Masukkan kode berikut *0 1 * * 0 /lokasi_directory/backup.sh* (setiap hari minggu jam 01:00)
+
+- Cek apakah jadwal sudah tersimpan dengan *crontab -l*
+
+- Aktifkan cron dengan *sudo systemctl start cron*
+
+- Agar otomatis jalan setiap server dinyalakan pakai *sudo systemctl enable cron*
+
+- Backup Website
+
+Sebagai pengaman tambahan, setiap anggota melakukan backup file website masing-masing dengan langkah-langkah berikut : 
+
+- Pastikan berada di directory masing-masing dengan *cd /home/**userAnggota*
+
+- Buat file nano untuk backup dengan menggunakan perintah *nano namaprogram.sh*
+
+- Masukkan kode berikut 
+*#!/bin/bash*
+
+tanggal=$(date +%F)
+*tar -cvzf /home/namaanggota/backup_$tanggal.tar.gz /var/www/sNRP*
+
+(atau menggunakan kode seperti yang tertera di gambar)
+
+- Berikan izin untuk jalan dengan *chmod +x namaprogram.sh*
+
+- Buka crontab untuk backup otomatis dengan *crontab -e *(kalau pertama kali akan diminta memilih editor, aku memilih nano)
+
+- Masukkan kode berikut *0 1 * * 0 /lokasi_directory/namaprogram.sh* (setiap minggu jam 01;00)
+
+- Cek apakah jadwal sudah tersimpan dengan *crontab -l*
+
+- Sudo aktifkan cron dengan *sudo systemctl start cron*
+
+- Agar dijalankan secara otomatis sesuai waktu yang ditentukan, gunakan kode *sudo systemctl enable cron*
+
+B. Update System
+
+Otomasi update dan juga upgrade paket agar dapat dilakukan secara otomatis pada waktu yang sudah ditentukan dengan menggunakan crontab.
+
+- Pastikan berada di home dengan *cd /home*
+
+- Buat file nano untuk update dengan menggunakan perintah *sudo nano** *[*namaprogram.sh*](http://namaprogram.sh)
+
+- Masukkan kode berikut 
+*#!/bin/bash*
+
+		*sudo apt update* 
+
+*sudo apt upgrade -y*
+
+(atau menggunakan kode seperti yang tertera di gambar)
+
+- Cek apakah sudah dibuat dengan *ls*
+
+- Berikan izin untuk jalan dengan sudo *chmod +x namaprogram.sh*
+
+- Buka crontab untuk backup otomatis dengan *crontab -e *
+
+- Masukkan kode berikut *0 1 * * 0 /lokasi_directory/namaprogram.sh* untuk dijalankan setiap minggu pada jam 01:00
+
+- Cek apakah jadwal sudah tersimpan dengan *crontab -l*Keamanan server bertujuan untuk mencegah akses yang tidak sah terhadap sistem. 
+
+- Sudo aktifkan cron dengan *sudo systemctl start cron*
+
+- Agar otomatis jalan setiap server dinyalakan pakai *sudo systemctl enable cron*
+
+## 5.3 Konfigurasi Keamanan Server
+
+Berikut adalah beberapa hal yang dapat dilakukan untuk mengamankan server
+
+### 5.3.1 Firewall 
+
+Firewall digunakan untuk mengatur port yang boleh diakses dan Ubuntu menggunakan UFW (Uncomplicated Firewall).
+
+Berikut adalah beberapa konfigurasi pada firewall demi keamanan server 
+
+- Melihat status dulu dengan *sudo ufw status*
+
+- Izinkan layanan SSH (22), HTTP (80), dan FTP (21) dan (4000:40100) dengan *sudo ufw allow port/tcp*
+
+- Aktifkan firewall dengan *sudo ufw enable*
+
+- Cek status dengan * sudo ufw status *
+
+### 5.3.2 Hardening SSH
+
+SSH butuh diamankan agar tidak mudah diserang.
+
+Berikut adalah langkah konfigurasi SSH
+
+- Buka file konfigurasi SSH dengan *sudo nano /etc/ssh/sshd_config*
+
+- Uncomment dan ubah menjadi *PermitRootLogin no* dan *PasswordAuthentication yes *dan save
+
+Tujuan:
+
+menonaktifkan login root langsung
+
+membatasi akses SSH
+
+meningkatkan keamanan server
+
+- Restart SSH untuk menerapkan konfigurasi baru dengan *sudo systemctl restart ssh*
+
+### 5.3.3 Antivirus 
+
+Ubuntu itu relatif aman tetapi memiliki antivirus tidak ada salahnya. Karena itu, diperlukan menggunakan ClamAV untuk project ini karena gratis dan dapat lintas platform.
+
+Berikut adalah langkah instalasi dan penggunaan ClamAV : 
+
+- Update package dengan *sudo apt update *
+
+- Install dengan *sudo apt install clamav clamav-daemon *
+
+- Cek status dengan *sudo systemctl status clamav-freshclam*
+
+- Kalau inactive, jalankan dengan *sudo systemctl start clamav-freshclam*
+
+- Dan agar jalan setiap boot gunakan *sudo systemctl enable clamav-freshclam*
+
+- Scan folder dengan *clamscan -r /var/www/*
